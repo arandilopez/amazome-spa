@@ -1,0 +1,46 @@
+<h1>Usuarios</h1>
+
+<!-- {{ $storage.usuarios | json }} -->
+<form class="form-inline mb-3">
+  <div class="form-group">
+    <label for="usuario_nombre">Nombre:</label>
+    <input id="usuario_nombre" type="text" name="nombre" class="form-control" ng-model="user.nombre">
+  </div>
+  <div class="form-group">
+    <label for="usuario_username">Username:</label>
+    <input id="usuario_username" type="text" name="username" class="form-control" ng-model="user.username">
+  </div>
+  <div class="form-group">
+    <label for="usuario_email">Email:</label>
+    <input id="usuario_email" type="email" name="email" class="form-control" ng-model="user.email">
+  </div>
+  <button type="button" class="btn btn-primary" ng-click="addUsuario()">Añadir Usuario</button>
+</form>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="usuario in $storage.usuarios">
+      <td>{{ usuario.nombre }}</td>
+      <td>{{ usuario.username }}</td>
+      <td>{{ usuario.email }}</td>
+      <td>
+        <a ui-sref="app.usuarios.detalle(usuario)" class="btn btn-outline-success">
+          <i class="ion-eye"></i>
+        </a>
+        <button type="button" class="btn btn-outline-info" ng-click="editUsuario($index)">
+          <i class="ion-edit"></i>
+        </button>
+        <button type="button" class="btn btn-outline-danger" ng-click="removeUsuario($index)">
+          <i class="ion-close"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
