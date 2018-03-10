@@ -13,6 +13,7 @@ angular.module('app', [
 ]) // <- si tiene el arreglo de dependencias es la creacion
 .constant('WEB_SERVICE', 'https://amazome.herokuapp.com')
 .config(Config)
+.controller('AppController', require('./AppController'))
 
 Config.$inject = ['$stateProvider']
 function Config ($stateProvider) {
