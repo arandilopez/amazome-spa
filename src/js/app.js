@@ -9,7 +9,7 @@ angular.module('app', [
   'ngStorage',
 
   'app.home',
-  // 'app.login',
+  'app.login',
 ]) // <- si tiene el arreglo de dependencias es la creacion
 .constant('WEB_SERVICE', 'https://amazome.herokuapp.com')
 .config(Config)
@@ -23,4 +23,5 @@ function Config ($stateProvider) {
       template: '<ui-view></ui-view>',
       abstract: true
     })
+
 }

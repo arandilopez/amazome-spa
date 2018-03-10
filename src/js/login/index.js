@@ -7,10 +7,15 @@ function Config($stateProvider, $httpProvider) {
     url: '/login',
     name: 'app.login',
     templateUrl: '/views/login.html',
-    controller: 'LoginController'
+    controller: 'LoginController',
+    // resolve: {
+    //   user: function ($http) {
+    //     return $http.get('/users/current')
+    //   }
+    // }
   })
 
-  // $httpProvider.interceptors.push('AuthInterceptor')
+  $httpProvider.interceptors.push('AuthInterceptor')
 }])
 .controller('LoginController', require('./controllers/LoginController'))
-// .factory('AuthInterceptor', require('./AuthInterceptor'))
+.factory('AuthInterceptor', require('./AuthInterceptor'))
