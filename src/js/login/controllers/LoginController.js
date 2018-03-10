@@ -27,7 +27,9 @@ function LoginController($scope, $http, WEB_SERVICE, $localStorage, $state, $q) 
     })
     .catch(function (e) {
       console.error(e)
-      // if (e.status == 404) {}
+      if (e.status == 404) {
+        alert("User not found")
+      }
     })
   }
 }
