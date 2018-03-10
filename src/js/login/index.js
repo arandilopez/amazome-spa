@@ -1,4 +1,5 @@
 angular.module('app.login', [])
+
 .config(['$stateProvider', '$httpProvider',
 function Config($stateProvider, $httpProvider) {
   $stateProvider
@@ -9,7 +10,7 @@ function Config($stateProvider, $httpProvider) {
     controller: 'LoginController'
   })
 
-  $httpProvider.interceptors.push('AuthInterceptor')
+  // $httpProvider.interceptors.push('AuthInterceptor')
 }])
 .controller('LoginController', require('./controllers/LoginController'))
-.factory('AuthInterceptor', require('./AuthInterceptor'))
+// .factory('AuthInterceptor', require('./AuthInterceptor'))
