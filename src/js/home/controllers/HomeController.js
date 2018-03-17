@@ -1,8 +1,19 @@
 // class HomeController
-HomeController.$inject = ['$scope', 'productsService']
+HomeController.$inject = ['$scope', 'productsService', 'cartService']
 
-function HomeController ($scope, productsService) {
+function HomeController ($scope, productsService, cartService) {
   $scope.products = []
+
+  $scope.addToCart = function (product) {
+    if (!$scope.isAuthenticated()) {
+      return alert('Inicia sesión para añadir productos al carrito')
+    }
+    cartService.add(product).then(function (response) {
+      if (response.status = 201) {
+        alert(`${product.name} fue añadido al carrito`)
+      }
+    })
+  }
 
   _fetchProducts()
 
