@@ -8,11 +8,7 @@ function LoginController($scope, $http, WEB_SERVICE, $localStorage, $state, $q) 
       let data = response.data
       if (data.jwt) {
         $localStorage.api_key = data.jwt
-        return $http.get(WEB_SERVICE + '/users/current' /*, {
-          headers: {
-            Authorization: "Bearer " + $localStorage.api_key
-          }
-        }*/)
+        return $http.get(WEB_SERVICE + '/users/current')
       } else {
         return $q.reject({message: "No hay token"});
       }
