@@ -16,7 +16,14 @@ function Config($stateProvider) {
     },
     templateUrl: '/views/products/show.html',
     controller: 'ProductShowController',
+    onEnter: ['$stateParams', '$state',
+    function _onEnter($stateParams, $state) {
+      if (!$stateParams.id) {
+        $state.go('app.home')
+      }
+    }]
   })
 }])
 
 .controller('ProductShowController', require('./controllers/ProductShowController'))
+.factory('productsService', require('./services/ProductsService'))

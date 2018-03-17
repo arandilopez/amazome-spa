@@ -1,10 +1,13 @@
-ProductShowController.$inject = ['$stateParams', '$scope', '$http', 'WEB_SERVICE']
-function ProductShowController($stateParams, $scope, $http, WEB_SERVICE) {
+ProductShowController.$inject = ['$stateParams', '$scope', 'productsService']
+function ProductShowController($stateParams, $scope, productsService) {
   $scope.product = {}
+
   _fetchProduct($stateParams.id)
+
   function _fetchProduct(id = null) {
+    let x = productsService
     if (id) {
-      $http.get(WEB_SERVICE + '/products/' + id)
+      x.find(id)
       .then(function (response) {
         $scope.product = response.data
       })
