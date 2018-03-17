@@ -6,7 +6,7 @@
   </div>
 
   <div class="row">
-    <div class="col-4" ng-repeat="product in products">
+    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12" ng-repeat="product in products">
       <div class="card">
         <a ui-sref="app.products.show(product)">
           <img class="card-img-top" ng-src="{{product.image}}" alt="Card image cap">
@@ -19,10 +19,17 @@
           </h5>
           <p class="card-text">{{product.description | limitTo:20}}</p>
           <h6>{{product.price | currency}}</h6>
-          <button type="button" class="btn btn-outline-danger">
-            <i class="ion ion-heart"></i>
-          </button>
-          <button type="button" class="btn btn-outline-primary">
+          <div class="dropdown">
+            <button class="btn btn-outline-danger dropdown-toggle" type="button" id="dropdownWishlistsButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="ion ion-heart"></i>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownWishlistsButton">
+              <!-- <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a> -->
+            </div>
+          </div>
+          <button type="button" class="btn btn-outline-primary float-right">
             <i class="ion ion-bag"></i>
           </button>
           <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
