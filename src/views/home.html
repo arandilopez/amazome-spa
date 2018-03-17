@@ -8,9 +8,15 @@
   <div class="row">
     <div class="col-4" ng-repeat="product in products">
       <div class="card">
-        <img class="card-img-top" ng-src="{{product.image}}" alt="Card image cap">
+        <a ui-sref="app.products.show(product)">
+          <img class="card-img-top" ng-src="{{product.image}}" alt="Card image cap">
+        </a>
         <div class="card-body">
-          <h5 class="card-title">{{product.name}}</h5>
+          <h5 class="card-title">
+            <a ui-sref="app.products.show(product)">
+              {{product.name}}
+            </a>
+          </h5>
           <p class="card-text">{{product.description | limitTo:20}}</p>
           <h6>{{product.price | currency}}</h6>
           <button type="button" class="btn btn-outline-danger">

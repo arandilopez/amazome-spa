@@ -3,6 +3,7 @@ require('./dependencias')
 // Modulos de la aplicacion
 require('./home')
 require('./login')
+require('./products')
 
 angular.module('app', [
   'ui.router',
@@ -10,6 +11,7 @@ angular.module('app', [
 
   'app.home',
   'app.login',
+  'app.products',
 ]) // <- si tiene el arreglo de dependencias es la creacion
 .constant('WEB_SERVICE', 'https://amazome.herokuapp.com')
 .config(Config)
